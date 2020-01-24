@@ -34,4 +34,5 @@ chat on every website.
 
 REFs:
 https://github.com/firebase/quickstart-js/tree/master/auth/chromextension
- 
+https://reactjsexample.com/
+https://codelabs.developers.google.com/codelabs/firebase-web/#1 

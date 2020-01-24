@@ -1,5 +1,4 @@
 import React from "react";
-import "./UserProfile.css";
 
 var user = {
   basicInfo: {

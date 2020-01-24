@@ -1,3 +1,6 @@
+import Db from './dbService';
+
+const db = new Db();
 /**
  * Chrome storage abstraction class
  * https://developer.chrome.com/apps/tut_oauth
@@ -41,5 +44,20 @@ export default class oauth {
         reject(e);
       }
     });
+  }
+  /**
+   * login check helper
+   * @method
+   * @memberOf oauth
+   */
+  isLogin = async () => {
+    let data = null;
+    try {
+      const {authenticated} = await db.get("authenticated");
+      data = authenticated;
+    } catch (e) {
+      data = null;
+    }
+    return data;
   }
 }

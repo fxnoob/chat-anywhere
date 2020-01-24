@@ -1,6 +1,7 @@
 /**
  * Abstraction class to interact with the chrome extension API
  *
+ * @export
  * @class ChromeApi
  */
 class ChromeApi {
@@ -108,8 +109,12 @@ class ChromeApi {
    * @memberof ChromeApi
    */
   getActiveTab = winId => {
+    const config = { active: true };
+    if (winId) {
+      config.windowId = winId;
+    }
     return new Promise((resolve, reject) => {
-      chrome.tabs.query({ windowId: winId, active: true }, tabs => {
+      chrome.tabs.query(config, tabs => {
         resolve(tabs[0]);
       });
     });
