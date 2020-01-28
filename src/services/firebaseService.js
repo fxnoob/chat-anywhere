@@ -5,6 +5,7 @@ import AuthServiceClass from "./authSevice";
 const authService = new AuthServiceClass();
 /**
  * Firebase Utility class
+ * https://firebase.google.com/docs/firestore/security/rules-query
  * https://github.com/firebase/quickstart-js/tree/master/auth/chromextension
  *
  * @export
@@ -65,11 +66,12 @@ class firebaseServiceClass {
    * @method
    * @memberOf firebaseServiceClass
    */
-  saveMessageToFirestore = (details) => {
+  saveMessageToFirestore = (channel, details) => {
     console.log("saveMessageToFirestore called", details);
-    const {email, userName, text, profilePicUrl, url} = details;
+    const {email, userId, userName, text, profilePicUrl, url} = details;
     // Add a new message entry to the database.
-    return firebase.firestore().collection('messages').add({
+    return firebase.firestore().collection(channel).add({
+      userId: userId,
       url: url, // current active tab url
       email: email,
       userName: userName,
@@ -87,26 +89,25 @@ class firebaseServiceClass {
    * @param listenerCallback object object
    *@memberOf firebaseServiceClass
    */
-  getMessages = (listenerCallback) => {
-    // Create the query to load the last 12 messages and listen for new ones.
-    var query = this.firebase.firestore()
-      .collection('messages')
+  getLastNMessages = (channel, n) => {
+    return this.firebase.firestore()
+      .collection(channel)
+      .limit(n)
       .orderBy('timestamp', 'desc')
-      .limit(12);
-     if (listenerCallback) {
-       query.onSnapshot((snapshot) => {
-         snapshot.docChanges().forEach(function(change) {
-           listenerCallback(change);
-           // if (change.type === 'removed') {
-           //   deleteMessage(change.doc.id);
-           // } else {
-           //   var message = change.doc.data();
-           //   displayMessage(change.doc.id, message.timestamp, message.name,
-           //     message.text, message.profilePicUrl, message.imageUrl);
-           // }
-         });
-       });
-     }
+      .get()
+      .then(snapshot => {
+        return snapshot;
+      })
+  }
+  messageListener = (channel, listenerCallback) => {
+    const query = this.firebase.firestore()
+      .collection(channel);
+    query.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach(function(change) {
+        console.log("new change", {change});
+        listenerCallback(change);
+      });
+    });
   }
   /**
    *Logout user

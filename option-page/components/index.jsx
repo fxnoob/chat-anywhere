@@ -12,6 +12,7 @@ export default class Index extends React.Component {
     error: '',
     authenticated: false,
     basicInfo: {
+      userId: '',
       displayName: "Jane Doe",
       email: "Los Angeles, CA",
       photoURL: "http://lorempixel.com/500/500/people"
@@ -27,18 +28,20 @@ export default class Index extends React.Component {
   init = async () => {
     try {
       const userData = await firebaseService.getUser();
+      const userId = firebaseService.firebase.auth().currentUser.uid;
       this.setState({
         authenticated: true,
         loading: false,
         basicInfo: {
+          userId: userId,
           displayName: userData.additionalUserInfo.profile.name,
           email: userData.additionalUserInfo.profile.email
         },
       });
-      await db.set({authenticated: true});
+      await db.set({authenticated: true, userId});
     } catch (e) {
       this.setState({authenticated: false, error: e, loading: false});
-      await db.set({authenticated: true});
+      await db.set({authenticated: true, userId: ''});
     }
   };
   render() {

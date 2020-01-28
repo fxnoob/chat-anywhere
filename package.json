@@ -56,6 +56,7 @@
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
     "firebase": "^7.6.2",
+    "psl": "^1.7.0",
     "react": "^16.8.6",
     "react-chat-widget": "^2.1.5",
     "react-dom": "^16.8.6",
