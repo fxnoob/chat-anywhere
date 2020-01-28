@@ -37,6 +37,7 @@ class App extends Component {
       const snapshot = await firebaseService.getLastNMessages(channel, 12);
       const dataStore = [];
       snapshot.forEach(doc => {
+        if (doc.type=='added')
         dataStore.push(doc.data());
       });
       dataStore.reverse().map(data => {
