@@ -1,13 +1,5 @@
 import React from "react";
 
-var user = {
-  basicInfo: {
-    displayName: "Jane Doe",
-    email: "Los Angeles, CA",
-    photoURL: "http://lorempixel.com/500/500/people"
-  }
-};
-
 class Avatar extends React.Component {
   render() {
     var image = this.props.image,
@@ -39,22 +31,22 @@ class MainPanel extends React.Component {
           <h2>{info.displayName}</h2>
           <h3>{info.email}</h3>
           <hr />
+          <p>Close this tab. Chat on any website with other users.</p>
         </div>
         <div className="bottom">
-          <h4>Biography</h4>
-          <p>
-            Chat on any website with other users.
-          </p>
+          Creator@<a href="https://github.com/fxnoob">Hitesh Saini</a>
+          <br />
+          <a href="https://github.com/fxnoob">Terms and Conditions</a>
         </div>
       </div>
     );
   }
 }
 
-export default (props) => {
+export default props => {
   return (
     <div id="user-profile">
       <MainPanel info={props.info} />
     </div>
   );
-}
+};
