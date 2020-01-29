@@ -37,8 +37,7 @@ class App extends Component {
       const snapshot = await firebaseService.getLastNMessages(channel, 12);
       const dataStore = [];
       snapshot.forEach(doc => {
-        if (doc.type=='added')
-        dataStore.push(doc.data());
+        if (doc.type == "added") dataStore.push(doc.data());
       });
       dataStore.reverse().map(data => {
         if (data.userId && data.userId != this.userId) {
@@ -73,20 +72,6 @@ class App extends Component {
   saveMessageToCloud = async (channel, details) => {
     await firebaseService.saveMessageToFirestore(channel, details);
   };
-  // exTaddUserMessage = async newMessage => {
-  //   const userId = firebaseService.firebase.auth().currentUser.uid;
-  //   try {
-  //     const details = {
-  //       url: this.state.currentTabUrl,
-  //       email: this.state.basicInfo.email,
-  //       userId: userId,
-  //       userName: this.state.basicInfo.displayName,
-  //       text: newMessage,
-  //       profilePicUrl: this.state.basicInfo.profilePicUrl
-  //     };
-  //     await this.saveMessageToCloud(details);
-  //   } catch (e) {}
-  // };
   handleNewUserMessage = async newMessage => {
     try {
       const details = {
@@ -107,12 +92,22 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <AppBar />
-        <h1>Hi you are logged In.</h1>
-        <p>Now you can chat anywhere on Internet</p>
-        {!this.state.loading ? (
+    let html;
+    const { loading, error, basicInfo } = this.state;
+    if (loading) {
+      html = (
+        <div>
+          <AppBar />
+          <h1>Hi {basicInfo.displayName}.</h1>
+          <h3>Loading chat system for you...</h3>
+        </div>
+      );
+    } else if (!loading && error == "") {
+      html = (
+        <div>
+          <AppBar />
+          <h1>Hi {basicInfo.displayName}.</h1>
+          <p>Now you can chat anywhere on Internet</p>
           <Widget
             handleNewUserMessage={this.handleNewUserMessage}
             profileAvatar={this.state.basicInfo.profilePicUrl}
@@ -120,11 +115,23 @@ class App extends Component {
             subtitle={this.state.currentTabUrl}
             profileAvatar={this.state.basicInfo.profilePicUrl}
           />
-        ) : (
-          <h3>Loading...</h3>
-        )}
-      </div>
-    );
+        </div>
+      );
+    } else {
+      html = (
+        <div>
+          <AppBar />
+          <h1>Hi {basicInfo.displayName}.</h1>
+          <h3 style={{ color: "red" }}>Gotcha!!!</h3>
+          <h3>Keep in mind that</h3>
+          <ul>
+            <li>This does not work on empty url tabs. eg. new tab</li>
+            <li>Please check internet connectivity</li>
+          </ul>
+        </div>
+      );
+    }
+    return html;
   }
 }
 

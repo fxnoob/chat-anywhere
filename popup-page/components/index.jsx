@@ -1,7 +1,7 @@
 import React from "react";
 import SignIn from "./Signin";
-import ChatWindow from './ChatWindow';
-import Db from '../../src/services/dbService';
+import ChatWindow from "./ChatWindow";
+import Db from "../../src/services/dbService";
 
 const db = new Db();
 
@@ -26,15 +26,15 @@ export default class Index extends React.Component {
     } else {
       isAuthenticated = false;
     }
-    this.setState({authenticated: isAuthenticated, loading: false});
+    this.setState({ authenticated: isAuthenticated, loading: false });
   };
   render() {
     const { loading, authenticated } = this.state;
     if (loading) {
-      return "Loading..";
+      return "Initialising...";
     }
     if (authenticated) {
-      return <ChatWindow/>;
+      return <ChatWindow />;
     } else {
       return <SignIn />;
     }
