@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-import { Widget, addResponseMessage, addUserMessage } from "react-chat-widget"; // https://github.com/Wolox/react-chat-widget
+import {
+  Widget,
+  addResponseMessage,
+  addUserMessage,
+  renderCustomComponent
+} from "react-chat-widget"; // https://github.com/Wolox/react-chat-widget
 import AppBar from "./AppBar";
 import firebaseService from "../../src/services/firebaseService";
 import ChromeService from "../../src/services/chromeService";
 import { extractHostname } from "../../src/services/urlService";
 import "react-chat-widget/lib/styles.css";
+import UserChatRenderer from "./userChat";
 
 const ChromeServiceObj = new ChromeService();
 
@@ -34,24 +40,20 @@ class App extends Component {
       const channel = extractHostname(activeTab.url);
       const userData = await firebaseService.getUser();
       this.userId = firebaseService.firebase.auth().currentUser.uid;
-      const snapshot = await firebaseService.getLastNMessages(channel, 12);
-      const dataStore = [];
-      snapshot.forEach(doc => {
-        if (doc.type == "added") dataStore.push(doc.data());
-      });
-      dataStore.reverse().map(data => {
-        if (data.userId && data.userId != this.userId) {
-          addResponseMessage(data.text);
-        } else {
-          addUserMessage(data.text);
-        }
-      });
-
       firebaseService.messageListener(channel, change => {
-        console.log("new change", { change });
         const data = change.doc.data();
-        if (data.userId && data.userId != this.userId) {
-          addResponseMessage(data.text);
+        console.log({ data });
+        const { profilePicUrl, userName, text, timestamp } = data;
+        if (change.type == "added") {
+          if (data.userId && data.userId != this.userId) {
+            renderCustomComponent(UserChatRenderer, {
+              profilePicUrl,
+              userName,
+              text,
+              timestamp,
+              userType: "other"
+            });
+          }
         }
       });
       this.setState({
@@ -110,10 +112,9 @@ class App extends Component {
           <p>Now you can chat anywhere on Internet</p>
           <Widget
             handleNewUserMessage={this.handleNewUserMessage}
-            profileAvatar={this.state.basicInfo.profilePicUrl}
+            titleAvatar={this.state.basicInfo.profilePicUrl}
             title="Chat Everywhere"
             subtitle={this.state.currentTabUrl}
-            profileAvatar={this.state.basicInfo.profilePicUrl}
           />
         </div>
       );

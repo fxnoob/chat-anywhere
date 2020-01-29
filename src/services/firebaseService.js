@@ -68,56 +68,57 @@ class firebaseServiceClass {
    */
   saveMessageToFirestore = (channel, details) => {
     console.log("saveMessageToFirestore called", details);
-    const {email, userId, userName, text, profilePicUrl, url} = details;
+    const { email, userId, userName, text, profilePicUrl, url } = details;
     // Add a new message entry to the database.
-    return firebase.firestore().collection(channel).add({
-      userId: userId,
-      url: url, // current active tab url
-      email: email,
-      userName: userName,
-      text: text,
-      profilePicUrl: profilePicUrl,
-      timestamp: this.firebase.firestore.FieldValue.serverTimestamp()
-    }).catch(function(error) {
-      console.error('Error writing new message to database', error);
-    });
+    return firebase
+      .firestore()
+      .collection(channel)
+      .add({
+        userId: userId,
+        url: url, // current active tab url
+        email: email,
+        userName: userName,
+        text: text,
+        profilePicUrl: profilePicUrl,
+        timestamp: this.firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .catch(function(error) {
+        console.error("Error writing new message to database", error);
+      });
   };
 
   /**
    *  Load stored messages from firestore
    *@method
+   * @param channel string string
    * @param listenerCallback object object
    *@memberOf firebaseServiceClass
    */
-  getLastNMessages = (channel, n) => {
-    return this.firebase.firestore()
-      .collection(channel)
-      .limit(n)
-      .orderBy('timestamp', 'desc')
-      .get()
-      .then(snapshot => {
-        return snapshot;
-      })
-  }
+
   messageListener = (channel, listenerCallback) => {
-    const query = this.firebase.firestore()
-      .collection(channel);
-    query.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach(function(change) {
-        console.log("new change", {change});
-        listenerCallback(change);
+    // Create the query to load the last 12 messages and listen for new ones.
+    var query = this.firebase
+      .firestore()
+      .collection(channel)
+      .orderBy("timestamp", "desc")
+      .limit(1);
+    if (listenerCallback) {
+      query.onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          listenerCallback(change);
+        });
       });
-    });
-  }
+    }
+  };
   /**
    *Logout user
    * @method
    * @memberOf firebaseServiceClass
    */
-    logout = () => {
-      console.log("logout");
-      this.firebase.auth().signOut();
-    }
+  logout = () => {
+    console.log("logout");
+    this.firebase.auth().signOut();
+  };
 }
 const firebaseService = new firebaseServiceClass();
 export default firebaseService;
