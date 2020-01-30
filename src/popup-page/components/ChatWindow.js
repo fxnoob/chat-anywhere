@@ -82,7 +82,6 @@ class App extends Component {
       const details = {
         userId: this.userId,
         url: this.state.currentTabUrl,
-        email: this.state.basicInfo.email,
         userName: this.state.basicInfo.displayName,
         text: newMessage,
         profilePicUrl: this.state.basicInfo.profilePicUrl

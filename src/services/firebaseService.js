@@ -68,15 +68,14 @@ class firebaseServiceClass {
    */
   saveMessageToFirestore = (channel, details) => {
     console.log("saveMessageToFirestore called", details);
-    const { email, userId, userName, text, profilePicUrl, url } = details;
+    const { userId, userName, text, profilePicUrl, url } = details;
     // Add a new message entry to the database.
     return firebase
       .firestore()
       .collection(channel)
       .add({
         userId: userId,
-        url: url, // current active tab url
-        email: email,
+        url: url,
         userName: userName,
         text: text,
         profilePicUrl: profilePicUrl,
