@@ -1,6 +1,6 @@
 import React from "react";
-import firebaseService from "../../src/services/firebaseService";
-import Db from "../../src/services/dbService";
+import firebaseService from "../../services/firebaseService";
+import Db from "../../services/dbService";
 import "./index.css";
 import UserProfile from "./UserProfile";
 

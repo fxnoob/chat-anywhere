@@ -3,10 +3,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    content_script: "./content-scripts/App.jsx",
     background: "./src/background.js",
-    popup: "./popup-page/App.jsx",
-    option: "./option-page/App.jsx"
+    popup: "./src/popup-page/App.jsx",
+    option: "./src/option-page/App.jsx"
   },
   module: {
     rules: [
@@ -30,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
@@ -45,8 +44,8 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin(
       [
-        { from: "./popup-page/popup.html", force: true },
-        { from: "./option-page/option.html", force: true },
+        { from: "./src/popup-page/popup.html", force: true },
+        { from: "./src/option-page/option.html", force: true },
         { from: "./src/app/", force: true }
       ],
       {}

@@ -1,5 +1,5 @@
 import React from "react";
-import { secondsToString } from "../../src/services/dateService";
+import { secondsToString } from "../../services/dateService";
 export default props => {
   let html;
   const { profilePicUrl, userName, text, timestamp, userType } = props;

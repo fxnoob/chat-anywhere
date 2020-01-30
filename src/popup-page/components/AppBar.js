@@ -8,9 +8,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import chromeService from "../../src/services/chromeService";
-import firebaseService from "../../src/services/firebaseService";
-import dbService from "../../src/services/dbService";
+import chromeService from "../../services/chromeService";
+import firebaseService from "../../services/firebaseService";
+import dbService from "../../services/dbService";
 
 const chromeServiceObj = new chromeService();
 const dbServiceObj = new dbService();

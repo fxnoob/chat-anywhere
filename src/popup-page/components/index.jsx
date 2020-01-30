@@ -1,7 +1,7 @@
 import React from "react";
 import SignIn from "./Signin";
 import ChatWindow from "./ChatWindow";
-import Db from "../../src/services/dbService";
+import Db from "../../services/dbService";
 
 const db = new Db();
 
