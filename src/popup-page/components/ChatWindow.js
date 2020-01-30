@@ -6,9 +6,9 @@ import {
   renderCustomComponent
 } from "react-chat-widget"; // https://github.com/Wolox/react-chat-widget
 import AppBar from "./AppBar";
-import firebaseService from "../../src/services/firebaseService";
-import ChromeService from "../../src/services/chromeService";
-import { extractHostname } from "../../src/services/urlService";
+import firebaseService from "../../services/firebaseService";
+import ChromeService from "../../services/chromeService";
+import { extractHostname } from "../../services/urlService";
 import "react-chat-widget/lib/styles.css";
 import UserChatRenderer from "./userChat";
 
