@@ -12,7 +12,7 @@ import Menu from "@material-ui/core/Menu";
 import chromeService from "../../services/chromeService";
 import firebaseService from "../../services/firebaseService";
 import dbService from "../../services/dbService";
-
+import appIconImage from "./48x48.png";
 const chromeServiceObj = new chromeService();
 const dbServiceObj = new dbService();
 
@@ -60,18 +60,18 @@ export default function MenuAppBar(props) {
 
   return (
     <AppBar
+      title={appIconImage}
       position="static"
       style={{ backgroundColor: "#35cce6", height: "48px" }}
     >
       <Toolbar>
-        <IconButton
+        <img
+          src={appIconImage}
           edge="start"
           className={classes.menuButton}
           color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
+          aria-label="AppIcon"
+        />
         <Typography variant="h6" className={classes.title}>
           Chat Anywhere
         </Typography>

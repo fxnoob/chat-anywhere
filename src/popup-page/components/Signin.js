@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import ChromeServiceClass from "../../services/chromeService";
+import constants from "../../../constants";
 
 const chromeService = new ChromeServiceClass();
 
@@ -14,7 +15,7 @@ export default function SplitButton() {
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
-        <h1>Chat Everywhere! </h1>
+        <h1>{constants.appConfig.appName} </h1>
       </Grid>
       <Grid item xs={12}>
         <ButtonGroup
@@ -30,13 +31,13 @@ export default function SplitButton() {
       </Grid>
       <Grid item xs={10}>
         <ul style={{ background: "aliceblue" }}>
-          <li> find deals on Amazon and Ebay;</li>
-          <li> get live help on Stack Overflow;</li>
-          <li> chat with visitors to their own sites;</li>
-          <li> watch and chat about shows together on Netflix;</li>
-          <li> solicit career advice on LinkedIn;</li>
-          <li> chat with other developers on localhost;</li>
-          <li> instantly connect in online classrooms;</li>
+          <li> find deals on Amazon and Ebay</li>
+          <li> get live help on Stack Overflow</li>
+          <li> chat with visitors to their own sites</li>
+          <li> watch and chat about shows together on Netflix</li>
+          <li> solicit career advice on LinkedIn</li>
+          <li> chat with other developers on localhost</li>
+          <li> instantly connect in online classrooms</li>
           <li>
             {" "}
             chat about their favorite football team on nfl.com or goal.com;

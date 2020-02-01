@@ -1,5 +1,6 @@
 const constants = {
   appConfig: {
+    appName: "Chat Anywhere",
     key:
       "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn3aj4wjCbimQ3o0vw2SJ\nLGfrzBnc4PKGedNFiVj6nCeQUwu0xiKKPe5khVMqYCQ+ilLX/0E5PT2cmZfWu7Z8\nRSvU2cfQIylSoWDje6lwVpg+3EAhEVYpSxeMpusoQM/qZzZghO9tOF3HF+hxh4/E\nw0RTs3EFXaR/6VA7DoxkTxch/TGGQO1hjne22ufPsrmP+WJjP9RqUA9FDcZ+P+eH\n5ZBUiU39DMtQ+kreWbhUdtL9y5GYlqp3r0nwDrCnIKlnbXUjFcn60YqjPVY89KKa\nMBNUYNrv01VlvlyEhiJAV3vHvoBAe8mni6a3H+vORAKd3shDvvoHkdkUWyZAQe/p\nIwIDAQAB\n-----END PUBLIC KEY-----\n"
   },

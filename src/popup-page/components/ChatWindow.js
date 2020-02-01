@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import constants from "../../../constants";
 import {
   Widget,
   addResponseMessage,
@@ -8,7 +9,10 @@ import {
 import AppBar from "./AppBar";
 import firebaseService from "../../services/firebaseService";
 import ChromeService from "../../services/chromeService";
-import { extractHostname } from "../../services/urlService";
+import {
+  extractHostname,
+  urlWithoutQueryParameters
+} from "../../services/urlService";
 import "react-chat-widget/lib/styles.css";
 import UserChatRenderer from "./userChat";
 
@@ -128,8 +132,8 @@ class App extends Component {
           <Widget
             handleNewUserMessage={this.handleNewUserMessage}
             titleAvatar={this.state.basicInfo.profilePicUrl}
-            title="Chat Everywhere"
-            subtitle={this.state.currentTabUrl}
+            title={constants.appConfig.appName}
+            subtitle={urlWithoutQueryParameters(this.state.currentTabUrl)}
           />
         </div>
       );
