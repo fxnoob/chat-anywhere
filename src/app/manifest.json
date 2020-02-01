@@ -1,6 +1,5 @@
 {
   "name": "ChatEveryWhere",
-  "key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn3aj4wjCbimQ3o0vw2SJ\nLGfrzBnc4PKGedNFiVj6nCeQUwu0xiKKPe5khVMqYCQ+ilLX/0E5PT2cmZfWu7Z8\nRSvU2cfQIylSoWDje6lwVpg+3EAhEVYpSxeMpusoQM/qZzZghO9tOF3HF+hxh4/E\nw0RTs3EFXaR/6VA7DoxkTxch/TGGQO1hjne22ufPsrmP+WJjP9RqUA9FDcZ+P+eH\n5ZBUiU39DMtQ+kreWbhUdtL9y5GYlqp3r0nwDrCnIKlnbXUjFcn60YqjPVY89KKa\nMBNUYNrv01VlvlyEhiJAV3vHvoBAe8mni6a3H+vORAKd3shDvvoHkdkUWyZAQe/p\nIwIDAQAB\n-----END PUBLIC KEY-----\n",
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Chat Every Where",
@@ -11,7 +10,7 @@
   "background": {
     "scripts": ["background.bundle.js"]
   },
-  "permissions": ["identity", "webNavigation", "*://*/*", "storage"],
+  "permissions": ["identity", "activeTab", "storage"],
   "browser_action": {
     "default_icon": {
       "19": "images/icon-19.png",
@@ -27,5 +26,5 @@
       "https://www.googleapis.com/auth/userinfo.profile"
     ]
   },
-  "content_security_policy":"script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
 }

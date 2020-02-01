@@ -54,7 +54,8 @@ class App extends Component {
               userName,
               text,
               timestamp,
-              userType: "other"
+              userType: "other",
+              url: data.url
             });
           }
         }
@@ -98,10 +99,11 @@ class App extends Component {
   render() {
     let html;
     const { loading, error, basicInfo } = this.state;
+    console.log({ basicInfo });
     if (loading) {
       html = (
         <div>
-          <AppBar />
+          <AppBar userInfo={basicInfo} />
           <h1>Hi {basicInfo.displayName}.</h1>
           <h3>Loading chat system for you...</h3>
         </div>
@@ -109,9 +111,11 @@ class App extends Component {
     } else if (!loading && error == "") {
       html = (
         <div>
-          <AppBar />
+          <AppBar userInfo={basicInfo} />
           <h1>Hi {basicInfo.displayName}.</h1>
-          <p>Now you can chat anywhere on Internet</p>
+          <p style={{ fontSize: "initial" }}>
+            Now you can chat anywhere on Internet
+          </p>
           <img
             style={{
               marginTop: "130px",
@@ -132,7 +136,7 @@ class App extends Component {
     } else {
       html = (
         <div>
-          <AppBar />
+          <AppBar userInfo={basicInfo} />
           <h1>Hi {basicInfo.displayName}.</h1>
           <h3 style={{ color: "red" }}>Gotcha!!!</h3>
           <h3>Keep in mind that</h3>
