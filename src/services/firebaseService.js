@@ -1,6 +1,7 @@
 import * as firebase from "firebase";
 import Constants from "../../constants";
 import AuthServiceClass from "./authSevice";
+import { urlWithoutQueryParameters } from "./urlService";
 
 const authService = new AuthServiceClass();
 /**
@@ -75,7 +76,7 @@ class firebaseServiceClass {
       .collection(channel)
       .add({
         userId: userId,
-        url: url,
+        url: urlWithoutQueryParameters(url),
         userName: userName,
         text: text,
         profilePicUrl: profilePicUrl,
