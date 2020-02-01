@@ -1,3 +1,8 @@
+/**
+ * @function secondsToString
+ * @param timestamp Number
+ * @return string human readable datetime string
+ * */
 const secondsToString = timestamp => {
   if (typeof timestamp != "object") {
     return "";
