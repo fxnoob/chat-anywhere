@@ -54,7 +54,8 @@ class App extends Component {
               userName,
               text,
               timestamp,
-              userType: "other"
+              userType: "other",
+              url: data.url
             });
           }
         }
@@ -111,7 +112,9 @@ class App extends Component {
         <div>
           <AppBar />
           <h1>Hi {basicInfo.displayName}.</h1>
-          <p>Now you can chat anywhere on Internet</p>
+          <p style={{ fontSize: "initial" }}>
+            Now you can chat anywhere on Internet
+          </p>
           <img
             style={{
               marginTop: "130px",

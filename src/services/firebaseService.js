@@ -115,7 +115,6 @@ class firebaseServiceClass {
    * @memberOf firebaseServiceClass
    */
   logout = () => {
-    console.log("logout");
     this.firebase.auth().signOut();
   };
 }

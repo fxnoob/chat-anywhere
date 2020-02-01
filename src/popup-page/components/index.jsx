@@ -34,7 +34,23 @@ export default class Index extends React.Component {
       return "Initialising...";
     }
     if (authenticated) {
-      return <ChatWindow />;
+      return (
+        <React.Fragment>
+          <ChatWindow />
+          <hr />
+          <ul>
+            <li>
+              <a href="#">Help</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Terms and Conditions</a>
+            </li>
+          </ul>
+        </React.Fragment>
+      );
     } else {
       return <SignIn />;
     }
