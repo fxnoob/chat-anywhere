@@ -29,13 +29,21 @@ export default function SplitButton() {
         </ButtonGroup>
       </Grid>
       <Grid item xs={10}>
+        <ul style={{ background: "aliceblue" }}>
+          <li> find deals on Amazon and Ebay;</li>
+          <li> get live help on Stack Overflow;</li>
+          <li> chat with visitors to their own sites;</li>
+          <li> watch and chat about shows together on Netflix;</li>
+          <li> solicit career advice on LinkedIn;</li>
+          <li> chat with other developers on localhost;</li>
+          <li> instantly connect in online classrooms;</li>
+          <li>
+            {" "}
+            chat about their favorite football team on nfl.com or goal.com;
+          </li>
+        </ul>
         <p style={{ fontSize: "medium" }}>
-          Now, you don't need to manage the multiple accounts on social media to
-          chat about websites.{" "}
-        </p>
-        <p style={{ fontSize: "medium" }}>
-          Here we are introducing <b>Chat Everywhere</b>, a chat platform
-          specifically designed for URLS, which we visit everyday!
+          Chat about every topic imaginable on over 189 million websites.
         </p>
       </Grid>
     </Grid>
