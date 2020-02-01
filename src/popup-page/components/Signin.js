@@ -47,6 +47,18 @@ export default function SplitButton() {
           Chat about every topic imaginable on over 189 million websites.
         </p>
       </Grid>
+      <Grid item xs={10}>
+        <a href={constants.legal.contact_form_link} target="_blank">
+          Support
+        </a>
+        <a
+          style={{ marginLeft: "4px" }}
+          href={constants.legal.privacy_policy_link}
+          target="_blank"
+        >
+          Privacy Policy
+        </a>
+      </Grid>
     </Grid>
   );
 }
