@@ -1,4 +1,5 @@
 import React from "react";
+import constants from "../../../constants";
 
 class Avatar extends React.Component {
   render() {
@@ -31,12 +32,23 @@ class MainPanel extends React.Component {
           <h2>{info.displayName}</h2>
           <h3>{info.email}</h3>
           <hr />
-          <p>Close this tab. Chat on any website with other users.</p>
+          <p style={{ fontSize: "x-large", fontWeight: "500", color: "black" }}>
+            Close this tab. Chat on any website with other users.
+          </p>
         </div>
         <div className="bottom">
           Creator@<a href="https://github.com/fxnoob">Hitesh Saini</a>
           <br />
-          <a href="https://github.com/fxnoob">Terms and Conditions</a>
+          <a href={constants.legal.contact_form_link} target="_blank">
+            Support
+          </a>
+          <a
+            style={{ marginLeft: "4px" }}
+            href={constants.legal.privacy_policy_link}
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
         </div>
       </div>
     );

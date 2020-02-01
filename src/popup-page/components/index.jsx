@@ -2,7 +2,7 @@ import React from "react";
 import SignIn from "./Signin";
 import ChatWindow from "./ChatWindow";
 import Db from "../../services/dbService";
-
+import constants from "../../../constants";
 const db = new Db();
 
 export default class Index extends React.Component {
@@ -40,13 +40,22 @@ export default class Index extends React.Component {
           <hr />
           <ul>
             <li>
-              <a href="#">Help</a>
+              <a href={constants.legal.contact_form_link} target="_blank">
+                Help
+              </a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href={constants.legal.contact_form_link} target="_blank">
+                Contact
+              </a>
             </li>
             <li>
-              <a href="#">Terms and Conditions</a>
+              <a
+                href={constants.legal.terms_and_condition_link}
+                target="_blank"
+              >
+                Terms and Conditions
+              </a>
             </li>
           </ul>
         </React.Fragment>

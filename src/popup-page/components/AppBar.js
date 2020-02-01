@@ -109,7 +109,6 @@ export default function MenuAppBar(props) {
               onClose={handleClose}
             >
               <MenuItem onClick={openProfile}>Profile</MenuItem>
-              <MenuItem onClick={handleSettings}>Settings</MenuItem>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </div>
