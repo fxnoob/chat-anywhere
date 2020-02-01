@@ -13,9 +13,9 @@ export default class Index extends React.Component {
     authenticated: false,
     basicInfo: {
       userId: "",
-      displayName: "Jane Doe",
-      email: "Jane@doe",
-      photoURL: "http://lorempixel.com/500/500/people"
+      displayName: "",
+      email: "",
+      photoURL: ""
     }
   };
   constructor(props) {

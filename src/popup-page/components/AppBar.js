@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import Avatar from "@material-ui/core/Avatar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
@@ -28,7 +29,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function MenuAppBar() {
+export default function MenuAppBar(props) {
+  const { userInfo } = props;
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -57,7 +59,10 @@ export default function MenuAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#35cce6" }}>
+    <AppBar
+      position="static"
+      style={{ backgroundColor: "#35cce6", height: "48px" }}
+    >
       <Toolbar>
         <IconButton
           edge="start"
@@ -68,7 +73,7 @@ export default function MenuAppBar() {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          Chat Everywhere
+          Chat Anywhere
         </Typography>
         {auth && (
           <div>
@@ -79,7 +84,15 @@ export default function MenuAppBar() {
               onClick={handleMenu}
               color="inherit"
             >
-              <AccountCircle />
+              {userInfo.profilePicUrl == "" ? (
+                <AccountCircle />
+              ) : (
+                <Avatar
+                  style={{ height: "40px" }}
+                  alt={userInfo.displayName}
+                  src={userInfo.profilePicUrl}
+                />
+              )}
             </IconButton>
             <Menu
               id="menu-appbar"
