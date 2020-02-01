@@ -1,4 +1,8 @@
-import * as firebase from "firebase";
+// This import loads the firebase namespace along with all its type information.
+import * as firebase from "firebase/app";
+// These imports load individual services into the firebase namespace.
+import "firebase/auth";
+import "firebase/firestore";
 import Constants from "../../constants";
 import AuthServiceClass from "./authSevice";
 import { urlWithoutQueryParameters } from "./urlService";

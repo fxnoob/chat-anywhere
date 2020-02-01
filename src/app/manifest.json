@@ -1,8 +1,8 @@
 {
-  "name": "ChatEveryWhere",
+  "name": "Chat Anywhere",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Chat Every Where",
+  "description": "Chat about every topic imaginable on over 189 million websites.",
   "icons": {
     "16": "images/16x16.png",
     "48": "images/48x48.png",
