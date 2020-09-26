@@ -1,6 +1,6 @@
 {
   "name": "Chat Anywhere",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Chat about every topic imaginable on over 189 million websites.",
   "icons": {
@@ -21,7 +21,7 @@
     "default_popup": "popup.html"
   },
   "oauth2": {
-    "client_id": "258466365642-v80loc90u8n1b32bm5iaikbhivkd493r.apps.googleusercontent.com",
+    "client_id": "546869382919-pbt4mo61j1m58ulj7nn82fjhloumi7mq.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/userinfo.email",
       "https://www.googleapis.com/auth/userinfo.profile"

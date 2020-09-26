@@ -1,8 +1,8 @@
 const constants = {
   appConfig: {
-    appName: "Yapper - Chat Everywhere",
+    appName: "Chat Anywhere",
     key:
-      "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApm2FnuguT5eoy7xVVQ0R\nZcOKlPuTM6qg9bOCFADcd/EpLxRpbwL+5jEfzyh6izEAQZSfTGaV2lNqnTwfDBDu\nYgSiy/AOV8Qoj+4oLjWj1e4YQalKN+2J8KI6EesSaaQlQNb2vZJvquRPZlE0ZJG6\nHPViKyfp/UUBagAc74+bWAumzWkduoq+cch8uuXY+cqaQXR5laScS4U6EXreFcN5\nV/0FRJ+L249FL7zjXMHqUsp5XavoTWZCEneknueMe328fq2gINeutvIt1ytfoiPF\nHqXFOPyUcylmGh5jE3dGmOB62x/vkbAj2BlAxf3YKY+HXebxUrQvWOK0d2Q9xv9Q\ncwIDAQAB\n-----END PUBLIC KEY-----"
+      "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn3aj4wjCbimQ3o0vw2SJ\nLGfrzBnc4PKGedNFiVj6nCeQUwu0xiKKPe5khVMqYCQ+ilLX/0E5PT2cmZfWu7Z8\nRSvU2cfQIylSoWDje6lwVpg+3EAhEVYpSxeMpusoQM/qZzZghO9tOF3HF+hxh4/E\nw0RTs3EFXaR/6VA7DoxkTxch/TGGQO1hjne22ufPsrmP+WJjP9RqUA9FDcZ+P+eH\n5ZBUiU39DMtQ+kreWbhUdtL9y5GYlqp3r0nwDrCnIKlnbXUjFcn60YqjPVY89KKa\nMBNUYNrv01VlvlyEhiJAV3vHvoBAe8mni6a3H+vORAKd3shDvvoHkdkUWyZAQe/p\nIwIDAQAB\n-----END PUBLIC KEY-----\n"
   },
   legal: {
     privacy_policy_link:
